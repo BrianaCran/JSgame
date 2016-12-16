@@ -1,0 +1,44 @@
+.container{
+           clear: both;
+           margin: 5px 25% 0 25%;
+           padding: 10px;
+           .intro{
+                  background: lightblue;
+                  border-radius: 10px 10px 0 0;
+                  padding: 10px;
+           }
+           .actions{
+             padding: 10px;
+             background: green;
+             border-radius: 0px 0px 10px 10px;
+             input{
+                   width: 300px;
+             }
+             button{
+                    display: block;
+                    width: 306px;
+                    outline: none;
+                  }
+            input,button{
+                         margin: 2px 20% 5px 20%;
+            }
+           }
+           .instructions{
+                         display: none;
+                         background: white;
+                         padding: 5px 10px 5px 10px;
+                         border-radius: 10px;
+                         .js-close{
+                                   float: right;
+                                   cursor: pointer;
+                                   font-size: 25px;
+                                   color: red;
+                                   margin: 0;
+                         }
+                         .details{
+                                  clear: both;
+                                  padding-top: 5px;
+
+                         }
+           }
+}
