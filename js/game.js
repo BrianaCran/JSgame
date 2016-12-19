@@ -62,32 +62,27 @@ function result(userChoice){
    $('#jsOptionThree').text("");
    }
    //Flee Branch 2 second answer results
-        else if (game.lastUserChoice === "VERY FAST"){
+        else if (game.userChoice === "VERY FAST"){
           $('.js-feedback').text("You have escaped!");
           resetOptions();
         }
-        else if (game.lastUserChoice === "NOT FAST"){
+        else if (game.userChoice === "NOT FAST"){
           $('.js-feedback').text("Are you a quiet runner?");
           $('#jsOptionOne').text("Of Course");
           $('#jsOptionTwo').text("Not really");
           $('#jsOptionThree').text("");
         }
         //Flee Branch 3 Answer results
-          else if (game.lastUserChoice === "OF COURSE"){
-            $('.js-feedback').text("You have managed to sneak way from the still sleeping dragon!");
+          else if (game.userChoice === "OF COURSE"){
+            $('.js-feedback').text("You have managed to sneak away from the still sleeping dragon!");
             resetOptions();
           }
-          else if (game.lastUserChoice === "NOT REALLY"){
+          else if (game.userChoice === "NOT REALLY"){
             $('.js-feedback').text("The dragon has awakened and wasted no time in devouring you!!");
             resetOptions();
           }
-//default no matching answer
- else{
-   $('.js-feedback').text("invaild answer");
- };
-
 //Steal Branch 1
- if (game.userChoice === "STEAL") {
+else if (game.userChoice === "STEAL") {
    $('.js-feedback').text("Are you silent like a shadow?");
    $('#jsOptionOne').text("Yup ninja silent");
    $('#jsOptionTwo').text("Super Clumsy");
@@ -99,6 +94,12 @@ function result(userChoice){
         $('#jsOptionOne').text("A wagon full");
         $('#jsOptionTwo').text("Small bag full");
         $('#jsOptionThree').text("A handful");
+      }
+      else if (game.userChoice === "SUPER CLUMSY"){
+        $('.js-feedback').text("After grabbing some gold you tripped and made a racket! Your half stuck in gold..");
+        $('#jsOptionOne').text("Struggle and run");
+        $('#jsOptionTwo').text("Hide in the pile");
+        $('#jsOptionThree').text("Sing");
       }
       //Steal Branch 3 answer results
         else if (game.userChoice === "A WAGON FULL") {
@@ -112,15 +113,41 @@ function result(userChoice){
           $('#jsOptionThree').text("");
         }
         //Steal Branch 3 small bag full answer results
-          else if (game.userChoice === "STAND STILL") {
-            $('.js-feedback').text("As you wait with bated breath the dragon continues to slumber. You leave while you still can...");
-            resetOptions();
-          }
-          else if (game.userChoice === "RUN FOR IT") {
-            $('.js-feedback').text("The dragon was fully awakened by your mad scramble...After a long chase you fall in exhaustion and are devoured.");
-            resetOptions();
-          }
-
+            else if (game.userChoice === "STAND STILL") {
+              $('.js-feedback').text("As you wait with bated breath the dragon continues to slumber. You leave while you still can...");
+              resetOptions();
+            }
+            else if (game.userChoice === "RUN FOR IT") {
+              $('.js-feedback').text("The dragon was fully awakened by your mad scramble...After a long chase you fall in exhaustion and are devoured.");
+              resetOptions();
+            }
+        else if (game.userChoice === "A HANDFUL"){
+          $('.js-feedback').text(" You have succesfully taken your stolen treasure and escaped unnoticed!");
+          resetOptions();
+        }
+        else if (game.userChoice === "STRUGGLE AND RUN"){
+          $('.js-feedback').text("OH NO! You are stuck and now the dragon has you in it's sight. You were incinerated...");
+          resetOptions();
+        }
+        else if (game.userChoice === "HIDE IN THE PILE"){
+          $('.js-feedback').text("The dragon awakens, but soon goes back to sleep too lazy to search for the source of the noise...You take the chance to escape");
+          resetOptions();
+        }
+        else if (game.userChoice === "SING"){
+          $('.js-feedback').text("You start to sing in a surprisingly good singing voice..The dragon sees you and listens..");
+          $('#jsOptionOne').text("Keep Singing");
+          $('#jsOptionTwo').text("Run Away");
+          $('#jsOptionThree').text("");
+        }
+       //Steal Branch 3 sing answer results
+            else if (game.userChoice === "KEEP SINGING"){
+              $('.js-feedback').text("The dragon is very pleased with your singing and traps you into a nearby cage. Where you sing for the rest of your days...");
+              resetOptions();
+            }
+            else if (game.userChoice === "RUN AWAY"){
+              $('.js-feedback').text("Before you can even get out of reach you are turned into ribbons by the dragons sharp claws");
+              resetOptions();
+            }
 }
 
 $(document).ready(
