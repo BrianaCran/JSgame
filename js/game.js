@@ -148,6 +148,26 @@ else if (game.userChoice === "STEAL") {
               $('.js-feedback').text("Before you can even get out of reach you are turned into ribbons by the dragons sharp claws");
               resetOptions();
             }
+  else if (game.userChoice === "FIGHT"){
+    $('.js-feedback').text("You have chosen to fight!")
+
+    var dragonDamage = Math.floor(Math.random() * (20)) +1;
+    var userDamage = Math.floor(Math.random() * (100 - 1 + 1)) +1;
+    if(userDamage >= 0){
+      var dragonHealth = 100;
+      var userHealth = 100;
+      var newDragonHealth = dragonHealth - userDamage;
+      $('.js-feedback').text(newDragonHealth);
+      if(newDragonHealth > 0){
+        var newDragonHealth = dragonHealth - userDamage;
+        $('.js-feedback').text(newerDragonHealth);
+      }
+      else if (newDragonHealth <= 0){
+        $('.js-feedback').text("You have slain the dragon!");
+      }
+    }
+
+  }
 }
 
 $(document).ready(
@@ -163,6 +183,7 @@ $(document).ready(
       $('.js-display').hide();
   });
 });
+
 $(document).ready(
   function(){
     newGame();
