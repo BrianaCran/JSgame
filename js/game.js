@@ -154,17 +154,22 @@ else if (game.userChoice === "STEAL") {
     $('#jsOptionTwo').text("");
     $('#jsOptionThree').text("");
     }
-    else if (game.userChoice === "ATTACK"){
-     var fiftyFifty = Math.floor(Math.random() * (100 - 1 + 1)) +1;
-      if (fiftyFifty < 50){
-          $('.js-feedback').text("The dragon has killed you! Click new game to try again.");
-          resetOptions();
+
+    /*var dragonHealth = 100;
+   if (game.userChoice === "ATTACK"){
+     var newDragonHealth = dragonHealth -= Math.floor(Math.random() * (100 - 1 + 1)) +1;
+      */// if (dragonHealth < 100){
+      //     $('.js-feedback').text("You have hurt the dragon! Keep attacking!" + " Health left " + dragonHealth );
+      //     $('#jsOptionOne').text("Attack Again");
+      //     dragonHealth.push(newDragonHealth);
+      // }
+      // else if (dragonHealth <= 0){
+      //   $('.js-feedback').text("You have slain the dragon!!");
+      //   resetOptions();
+      // }
+ else{
+      alert('Invaild choice..Try Again')
       }
-      else if (fiftyFifty > 50){
-        $('.js-feedback').text("You have slain the dragon!!");
-        resetOptions();
-      }
-     }
 
 }
 
