@@ -6,12 +6,12 @@ var game = {
   nextUserChoice: null,
   dragonHealth: 100,
   playerHealth: 150,
-  gameWon: null
+  gameEnd: null
 };
 //renewing the game
 function newGame(){
   game.feedback = "You have encountered a sleeping dragon! What shall you do?!";
-  game.gameWon = false;
+  game.gameEnd = false;
   game.userChoice = null;
   game.dragonHealth = 100;
   game.playerHealth = 150;
@@ -55,6 +55,7 @@ function resetOptions(){
   $('#jsOptionOne').text("");
   $('#jsOptionTwo').text("");
   $('#jsOptionThree').text("");
+  game.gameEnd = true;
 };
 //fighting mechanics
 function fighting(){
@@ -82,9 +83,10 @@ function fighting(){
           $('.js-feedback').text("You and the dragon fought to the bitter end. Both of you have been slain....");
           resetOptions();
    }else{
-         alert('Invaild choice..Try Again')
+         alert('Invaild choice..Try Again');
    }
 }
+
 function result(userChoice){
 //Flee branch
 switch(game.userChoice){
@@ -112,9 +114,7 @@ switch(game.userChoice){
                   $('.js-feedback').text("The dragon has awakened and wasted no time in devouring you!!");
                   resetOptions();
                   break;
-   };
 //Steal branch
-switch(game.userChoice){
   case "STEAL":
           $('.js-feedback').text("Are you silent like a shadow?");
           $('#jsOptionOne').text("Yup ninja silent");
@@ -189,9 +189,7 @@ switch(game.userChoice){
                                   $('.js-feedback').text("Before you can even get out of reach you are turned into ribbons by the dragons sharp claws");
                                   resetOptions();
                                   break;
-  }
 //Fight branch
-switch(game.userChoice){
   case "FIGHT":
         $('.js-feedback').text("You have chosen to fight!");
         $('#jsOptionOne').text("Sword");
@@ -207,10 +205,9 @@ switch(game.userChoice){
   case "ARROWS":
         fighting();
         break;
-    default:
-       alert("Invalid try again...");
-
-}
+  default:
+     alert("invalid answer...try again");
+ }
 }
 
 $(document).ready(
